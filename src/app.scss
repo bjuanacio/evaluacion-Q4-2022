@@ -7,19 +7,6 @@
     text-align: center;
   }
 
-  &__message {
-    color: #fff;
-    font-size: x-large;
-  }
-
-  &--empty-list {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-
   &__color-container {
     display: flex;
     align-items: center;
