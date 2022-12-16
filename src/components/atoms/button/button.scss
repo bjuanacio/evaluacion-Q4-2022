@@ -1,0 +1,24 @@
+.button {
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: darkgrey;
+    pointer-events: none;
+  }
+
+  &--small {
+    padding: 0.5rem;
+  }
+  &--secundary {
+    background-color: white;
+    color: var(--main);
+  }
+  &--primary {
+    background-color: var(--main);
+    color: white;
+  }
+}
