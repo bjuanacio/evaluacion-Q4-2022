@@ -1,3 +1,11 @@
+#Pruebas
+npm test
+npm coverage
+
+de existir error en las pruebas probar con el comando
+npx jest --clearCache
+y volver a ejecutar
+
 # Evaluación Q4 2022
 
 Para el desarrollo del proyecto debe guiarse de los siguientes estándares.
