@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Gif } from "../../../utils/interfaces/gif";
 import { Button } from "../../atoms/button/button";
 
@@ -11,12 +11,27 @@ interface CardProps {
 }
 
 export const Card: FC<CardProps> = ({ gif, handleDeleteClick }) => {
+  const [modalVisible, setmodalVisible] = useState(false);
+  const showModal = () => setmodalVisible(true);
+
   return (
     <div className="card">
       <img src={gif.url} alt="gif" />
-      <Button type="icon" className="card__delete" onClick={() => handleDeleteClick(gif)}>
-        <img src={DeleteIcon} alt="Delete icon" />
-      </Button>
+      {!modalVisible && (
+        <Button
+          type="icon"
+          className="card__delete"
+          onClick={() => showModal()}
+        >
+          <img src={DeleteIcon} alt="Delete icon" />
+        </Button>
+      )}
+      {modalVisible && (
+        <div className="card__modal">
+          <Button onClick={() => handleDeleteClick(gif)} className="card__confirm">Eliminar</Button>
+          <Button onClick={() => setmodalVisible(false)} className="card__confirm--secondary">Cancelar</Button>
+        </div>
+      )}
     </div>
   );
 };
