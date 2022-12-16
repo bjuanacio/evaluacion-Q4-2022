@@ -12,6 +12,7 @@ const GifAdd = () => {
     <Styles data-testid="gif-add-testid">
       <Input
         value={gifUrl}
+        placeholder="Gif URL"
         onChange={handleInputChange}
         error={!!errorMessage}
         errorHelper={errorMessage}
