@@ -1,0 +1,15 @@
+.card {
+  width: 280px;
+  max-height: 200px;
+  
+  &__gif {
+    width: 100%;
+    position: relative;
+  }
+
+  &__icon {
+    position: relative;
+    top: -160px;
+    left: calc(100% - 60px);
+  }
+}
