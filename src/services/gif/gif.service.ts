@@ -11,7 +11,7 @@ export const fetchGifs = async () => {
   return response.data;
 };
 
-export const deleteGif = async (id: number) => {
+export const deleteGif = async (gif: Gif) => {
   await axios.delete(API_URL);
   return true;
 };
