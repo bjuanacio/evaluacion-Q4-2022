@@ -1,74 +1,82 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./app";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
+import { Gif } from "./utils/interfaces/gif.interface";
+
+const axiosMock = new MockAdapter(axios);
 
 describe("App component", () => {
   it("Should render the title", () => {
     render(<App />);
-
-    const title = screen.getByText("Evaluación Técnica Q4 2022");
-    expect(title).toBeInTheDocument();
+    const title = screen.getByText("Gif Galery");
+    expect(title).toBeVisible();
   });
+  it("should add a new gif to the list", async () => {
+    axiosMock.onGet().reply(200, [
+      {
+        id: 86,
+        url: "https://media.tenor.com/WxflQIGfOYkAAAAj/spider-man-no-way-home-marvel-studios.gif",
+        author_id: 8,
+      },
+    ] as Gif[]);
 
-  it("Should render Colores section", () => {
-    const { container } = render(<App />);
+    render(<App />);
+    const gifInput = screen.getByPlaceholderText("Gift URL");
+    const gifButton = screen.getByText("Agregar");
+    expect(gifInput).toBeDefined();
+    expect(gifButton).toBeDefined();
+    expect(gifButton).toBeVisible();
+    expect(gifInput).toHaveTextContent("");
 
-    const titleColors = screen.getByText("Colores");
-    expect(titleColors).toBeInTheDocument();
-
-    const mainColor = screen.getByText("Principal");
-    expect(mainColor).toBeInTheDocument();
-
-    const color = container.getElementsByClassName("app__color--main");
-    expect(color).toBeDefined();
-
-    const mainColorHexa = screen.getByText("#B234B1");
-    expect(mainColorHexa).toBeInTheDocument();
-
-    const backgroundColor = screen.getByText("Fondo");
-    expect(backgroundColor).toBeInTheDocument();
-
-    const background = container.getElementsByClassName(
-      "app__color--background"
+    fireEvent.change(gifInput, {
+      target: {
+        value: "https://media.tenor.com/WxflQIGfOYkAAAAj/spider-man-no-way-home-marvel-studios.gif",
+      },
+    });
+    expect(gifInput).toHaveValue(
+      "https://media.tenor.com/WxflQIGfOYkAAAAj/spider-man-no-way-home-marvel-studios.gif"
     );
-    expect(background).toBeDefined();
+    fireEvent.click(gifButton);
 
-    const backgroundColorHexa = screen.getByText("#1C1C1C");
-    expect(backgroundColorHexa).toBeInTheDocument();
+    await waitFor(() => {
+      screen.queryByAltText(
+        "https://media.tenor.com/WxflQIGfOYkAAAAj/spider-man-no-way-home-marvel-studios.gif"
+      );
+    });
   });
+  it("should add a delete gif to the list", async () => {
+    axiosMock.onGet("/").reply(200, [
+      {
+        id: 329,
+        url: "https://media.tenor.com/WxflQIGfOYkAAAAj/spider-man-no-way-home-marvel-studios.gif",
+        author_id: 8,
+      },
+      {
+        id: 332,
+        url: "https://media.tenor.com/d2ETG1NuMIIAAAAM/degage-punch.gif",
+        author_id: 8,
+      },
+    ] as Gif[]);
 
-  it("Should render Íconos section", () => {
     render(<App />);
+    const gifInput = screen.getByPlaceholderText("Gift URL");
+    const gifButton = screen.getByText("Agregar");
+    const gifCard = screen.queryByAltText(
+      "https://media.tenor.com/d2ETG1NuMIIAAAAM/degage-punch.gif"
+    );
+    const deleteIcon = screen.getByAltText("Delete icon");
 
-    const deleteIcon = screen.getByText("Delete icon");
-    expect(deleteIcon).toBeInTheDocument();
+    expect(gifInput).toBeVisible();
+    expect(gifButton).toBeVisible();
+    expect(deleteIcon).toBeVisible();
+    expect(gifCard).toBeInTheDocument();
 
-    const imageDeleteIcon = screen.getByAltText("Delete icon");
-    expect(imageDeleteIcon).toBeInTheDocument();
+    fireEvent.click(deleteIcon);
+    const deleteButton = screen.getByText("Eliminar");
+    expect(deleteButton).toBeVisible();
 
-    const warningIcon = screen.getByAltText("Warning icon");
-    expect(warningIcon).toBeInTheDocument();
-
-    const imageWarningIcon = screen.getByAltText("Warning icon");
-    expect(imageWarningIcon).toBeInTheDocument();
-  });
-
-  it("Should render API REST section", () => {
-    render(<App />);
-
-    const title = screen.getByText("API REST");
-    expect(title).toBeInTheDocument();
-
-    const link = screen.getByText("Documentación de la API REST");
-    expect(link).toBeInTheDocument();
-  });
-
-  it("Should render GIFs section", () => {
-    render(<App />);
-
-    const title = screen.getByText("GIFs");
-    expect(title).toBeInTheDocument();
-
-    const link = screen.getByText("Página de GIFs");
-    expect(link).toBeInTheDocument();
+    fireEvent.click(deleteButton);
+    expect(gifCard).not.toBeInTheDocument();
   });
 });
