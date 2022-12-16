@@ -2,10 +2,13 @@ import DeleteIcon from "./assets/delete-icon.svg";
 import WarningIcon from "./assets/warning-icon.svg";
 
 import "./app.scss";
+import { Button } from "./components/atoms/button/button";
 
 const App = () => {
   return (
     <div className="app">
+
+      <Button>Agregar</Button>
       <h1>Evaluación Técnica Q4 2022</h1>
       <section>
         <h2>Colores</h2>
