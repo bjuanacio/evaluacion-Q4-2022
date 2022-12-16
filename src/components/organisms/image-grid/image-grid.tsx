@@ -3,12 +3,12 @@ import { Gif } from "../../../utils/interfaces/gif";
 import Card from "../../molecules/card/card";
 import "./image-grid.scss";
 
-interface GalleryProps {
+interface ImageGridProps {
   gifs: Gif[];
   handleGifDelete: (gif: Gif) => void;
 }
 
-export const ImageGrid: FC<GalleryProps> = ({ gifs, handleGifDelete }) => {
+export const ImageGrid: FC<ImageGridProps> = ({ gifs, handleGifDelete }) => {
   const renderItem = (gif: Gif) => (
     <Card key={gif.id} gif={gif} handleDeleteClick={handleGifDelete} />
   );
