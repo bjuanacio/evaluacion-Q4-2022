@@ -2,14 +2,12 @@ import DeleteIcon from "./assets/delete-icon.svg";
 import WarningIcon from "./assets/warning-icon.svg";
 
 import "./app.scss";
-import { Button } from "./components/atoms/button/button";
-import { Input } from "./components/atoms/input/input";
-import TopBar from "./components/molecules/top-bar/top-bar";
+import Header from "./components/organisms/header/header";
 
 const App = () => {
   return (
     <div className="app">
-      <TopBar handleAddClick={() => {}} handleUrlInputChange={() => {}} />
+      <Header handleAddClick={ () => {}} handleUrlInputChange={() => {}} title="Gif Galery"  />
 
       <h1>Evaluación Técnica Q4 2022</h1>
       <section>

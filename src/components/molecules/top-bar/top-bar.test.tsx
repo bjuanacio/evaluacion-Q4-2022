@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { TopBar } from "./top-bar";
 
-describe("Input", () => {
+describe("TopBar", () => {
   const handleInput = jest.fn();
   const handleClick = jest.fn();
-  it("should render input text", () => {
+  it("should render input text and button", () => {
     render(
       <TopBar handleUrlInputChange={handleInput} handleAddClick={handleClick} />
     );
