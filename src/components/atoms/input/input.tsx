@@ -1,44 +1,27 @@
-import { FC } from 'react'
-import './input.scss'
-import { Gif } from '../../../../src/utils/interfaces/gif'
+import { FC } from "react";
 
-export interface InputProps {
-  placeholder?: string
-  type?: 'text'
-  label?: string
-  errorMessage?: string
-  variant?: 'error' | 'normal'
-  value?: string
-  name?: keyof Gif
-  disabled?: boolean
-  onChange: (value: string, name?: keyof Gif) => void
+import "./input.scss";
+
+interface InputProps {
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+  error?: string;
 }
 
-export const Input: FC<InputProps> = ({
-  placeholder,
-  label = '',
-  type,
-  errorMessage,
-  variant,
-  onChange,
-  value,
-  name,
-  disabled = false
-}) => {
+const Input: FC<InputProps> = ({ placeholder, value, onChange, error }) => {
   return (
     <div className="input">
-      <label htmlFor={name}>{label}</label>
       <input
-        disabled={disabled}
-        name={name}
-        id={name}
-        onChange={(e) => onChange(e.target.value, name)}
-        className={`input__field ${variant === 'error' ? 'input__field--error' : ''}`}
-        value={value}
-        type={type}
+        type="text"
         placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={`input__input ${error ? "input__input--error" : ""}`}
       />
-      <span className="input__error-message">{errorMessage}</span>
+      {error && <p className="input__error">{error}</p>}
     </div>
-  )
-}
+  );
+};
+
+export default Input;

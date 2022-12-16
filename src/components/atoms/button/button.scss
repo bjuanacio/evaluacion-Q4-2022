@@ -1,18 +1,22 @@
 .button {
-    background-color: #B234B1;
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+  max-height: 55px;
+
+  &--primary {
+    background-color: var(--main);
     color: white;
     border: none;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-  
-    &:disabled {
-      background-color: darkgrey;
-      pointer-events: none;
-    }
-  
-    &--small {
-      padding: 0.5rem;
-    }
   }
+
+  &--secondary {
+    background-color: white;
+    color: var(--main);
+    border: 2px solid var(--main);
+  }
+}
