@@ -1,0 +1,26 @@
+
+
+.button {
+  border-radius: .5rem;
+  border: none;
+  padding: 1rem;
+
+  &--primary {
+    color: #fff;
+    background-color: var(--main);
+  }
+
+  &--secondary {
+    color: var(--main);
+    background-color: #fff;
+    border: 1px solid var(--main);
+  }
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+ 
+}
+
+

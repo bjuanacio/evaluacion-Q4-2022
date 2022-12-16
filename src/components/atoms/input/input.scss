@@ -1,0 +1,14 @@
+
+
+.input {
+  border: 1px solid var(--black-color);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+
+  &:focus-visible {
+    outline: 0px;
+    border: 1px solid var(--main-color);
+  }
+}

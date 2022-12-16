@@ -2,6 +2,24 @@
   max-width: 1024px;
   margin: auto;
 
+  &__title {
+    color: #fff;
+    text-align: center;
+  }
+
+  &__message {
+    color: #fff;
+    font-size: x-large;
+  }
+
+  &--empty-list {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
   &__color-container {
     display: flex;
     align-items: center;
@@ -9,7 +27,7 @@
   }
 
   &__color-title {
-    min-width: 70px
+    min-width: 70px;
   }
 
   &__color {

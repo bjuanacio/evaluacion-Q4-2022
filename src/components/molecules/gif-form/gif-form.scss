@@ -1,0 +1,14 @@
+.gif-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  &__input-container {
+    flex-basis: 50%;
+  }
+
+  &__input--error {
+    color: red;
+    padding-top: 0.25rem;
+  }
+}
