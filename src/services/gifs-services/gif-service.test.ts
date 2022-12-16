@@ -11,22 +11,22 @@ describe('Service test suite', () => {
             {
                 "id": 3,
                 "url": "example.com",
-                "author_id": 1
+                "author_id": 7
             },
             {
                 "id": 5,
                 "url": "example.com",
-                "author_id": 1
+                "author_id": 7
             },
             {
                 "id": 9,
                 "url": "example.com",
-                "author_id": 1
+                "author_id": 7
             },
             {
                 "id": 15,
                 "url": "https://media.tenor.com/BE3w5Fl3BKsAAAAC/merry-christmas.gif",
-                "author_id": 1
+                "author_id": 7
             }
         ]
         jest.spyOn(axios, 'get').mockResolvedValue({ data: gifsMock })

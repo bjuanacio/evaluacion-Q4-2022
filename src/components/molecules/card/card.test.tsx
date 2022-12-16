@@ -7,7 +7,7 @@ describe('Card test suite', () => {
   const gif: Gif = {
     "id": 3,
     "url": "example.com",
-    "author_id": 1
+    "author_id": 7
   }
   const deleteMock = jest.fn()
 
@@ -29,7 +29,16 @@ describe('Card test suite', () => {
     render(<Card gif={gif} />)
     const deleteIcon = screen.getByAltText('Delete icon')
     fireEvent.click(deleteIcon)
-    const deleteButton = screen.getAllByRole('button')[1]
+    const deleteButton = screen.getAllByRole('button')[0]
+    fireEvent.click(deleteButton)
     expect(deleteButton).toBeInTheDocument()
+  })
+
+  it('should execute cancel action', () => {
+    render(<Card gif={gif} />)
+    const deleteIcon = screen.getByAltText('Delete icon')
+    fireEvent.click(deleteIcon)
+    const cancelButon = screen.getAllByRole('button')[1]
+    fireEvent.click(cancelButon)
   })
 })
