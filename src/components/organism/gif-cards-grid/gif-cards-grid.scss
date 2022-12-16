@@ -1,0 +1,7 @@
+.gif-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-evenly;
+    column-gap: 2vw;
+    row-gap: 8vh;
+}
