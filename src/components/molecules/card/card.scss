@@ -1,0 +1,19 @@
+.card {
+    flex: 1;
+    height: 15rem;
+    width: 10rem;
+    position: relative;
+
+    img {
+        height: 100%;
+        display: block;
+        margin: auto;
+        max-width: 100%;
+    }
+
+    &__delete {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+    }
+}
