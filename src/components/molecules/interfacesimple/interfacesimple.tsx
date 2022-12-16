@@ -1,32 +1,36 @@
 import React, {useState} from 'react';
-import Label from "../../atoms/label/label";
 import Button from "../../atoms/button/button";
 import Input from "../../atoms/input/input";
 import clienHttp from "../../../services/client/client";
 
+interface Object{
+    url:string;
+    author_id:34;
+}
+
 const InterfaceSimple = () => {
 
-    const [url, setUrl] = useState("");
-    const object ={ "url":`"${url}"`, "author_id":34};
+    const [objPost, setObjPost] = useState(Object);
+
     const Agregar=()=>{
         console.log("presionado");
-        clienHttp.post("",object)
+        clienHttp.post("",objPost)
             .then((respose)=>{
                 console.log(respose.data)
             })
 
     }
 
-    const OnChange=()=>{
-        setUrl(event.target.value);
+    const OnChange= (prop:keyof Object, value: any)=>{
+        setObjPost({...objPost,[prop]:value});
     }
 
     return (
         <div>
             <Input
-                value="test"
+                value={objPost.url}
                 name="addGifs"
-                onChange={()=>OnChange()}
+                onChange={()=>OnChange("url",34)}
                 placeHolder="Gift URL"/>
 
             <Button onClick={()=>Agregar()} children="Agregar" size="small"/>
