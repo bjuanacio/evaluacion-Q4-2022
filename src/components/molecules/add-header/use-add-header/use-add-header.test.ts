@@ -38,6 +38,7 @@ describe("Use add header Test", () => {
   it("handle create action", () => {
     const { result } = renderHook(() =>
       useAddHeader({
+        value: "asdas",
         handleCreate: mockHandleCreate,
       })
     );

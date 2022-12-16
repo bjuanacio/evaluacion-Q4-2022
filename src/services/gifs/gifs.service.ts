@@ -11,8 +11,9 @@ export const fetchGifs = async () => {
   try {
     const result = await axios.get<Gif[]>(`${API_URL}`, headers);
     return result.data;
-  } catch (e) {
+  } catch (e: any) {
     console.log(e);
+    alert(e.message + " check console for details...");
   }
 };
 
@@ -22,8 +23,9 @@ export const deleteGif = async (gif: Gif) => {
       data: { ...gif, author_id: AUTHOR_ID },
     });
     return true;
-  } catch (e) {
+  } catch (e: any) {
     console.log(e);
+    alert(e.message + " check console for details...");
   }
 };
 
@@ -34,7 +36,8 @@ export const postGif = async (gif: Gif) => {
       author_id: AUTHOR_ID,
     });
     return response.data;
-  } catch (e) {
+  } catch (e: any) {
     console.log(e);
+    alert(e.message + " check console for details...");
   }
 };
