@@ -1,9 +1,8 @@
 import "./app.scss";
 import Header from "./components/organisms/header/header";
 import { useState } from "react";
-import Card from "./components/molecules/card/card";
 import { Gif } from "./utils/interfaces/gif";
-import Gallery from "./components/organisms/gallery/gallery";
+import ImageGrid from "./components/organisms/gallery/image-grid";
 
 const App = () => {
   const [inputUrl, setInputUrl] = useState("");
@@ -55,7 +54,7 @@ const App = () => {
         title="Gif Gallery"
       />
 
-      <Gallery gifs={mockGifs} handleGifDelete={handleDeleteClick} />
+      <ImageGrid gifs={mockGifs} handleGifDelete={handleDeleteClick} />
     </div>
   );
 };

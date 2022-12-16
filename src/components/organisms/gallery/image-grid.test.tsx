@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Gif } from "../../../utils/interfaces/gif";
-import { Gallery } from "./gallery";
+import { ImageGrid } from "./image-grid";
 
 describe("TopBar", () => {
   const handleDeleteClick = jest.fn();
@@ -17,7 +17,7 @@ describe("TopBar", () => {
     },
   ];
   it("should render successfully", () => {
-    render(<Gallery handleGifDelete={handleDeleteClick} gifs={mockGifs} />);
-    expect(screen.getByTestId("gallery")).toBeInTheDocument();
+    render(<ImageGrid handleGifDelete={handleDeleteClick} gifs={mockGifs} />);
+    expect(screen.getByTestId("image-grid")).toBeInTheDocument();
   });
 });
