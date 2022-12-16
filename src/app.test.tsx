@@ -1,74 +1,101 @@
-import { render, screen } from "@testing-library/react";
+import { configureStore } from "@reduxjs/toolkit";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
 import App from "./app";
+import { mockedAxios } from "./setupTests";
+import reducer from "./store/reducers/gifs";
 
 describe("App component", () => {
-  it("Should render the title", () => {
-    render(<App />);
-
-    const title = screen.getByText("Evaluación Técnica Q4 2022");
-    expect(title).toBeInTheDocument();
+  const store = configureStore({
+    reducer,
   });
-
-  it("Should render Colores section", () => {
-    const { container } = render(<App />);
-
-    const titleColors = screen.getByText("Colores");
-    expect(titleColors).toBeInTheDocument();
-
-    const mainColor = screen.getByText("Principal");
-    expect(mainColor).toBeInTheDocument();
-
-    const color = container.getElementsByClassName("app__color--main");
-    expect(color).toBeDefined();
-
-    const mainColorHexa = screen.getByText("#B234B1");
-    expect(mainColorHexa).toBeInTheDocument();
-
-    const backgroundColor = screen.getByText("Fondo");
-    expect(backgroundColor).toBeInTheDocument();
-
-    const background = container.getElementsByClassName(
-      "app__color--background"
+  test("Should create gifs", async () => {
+    mockedAxios.get.mockResolvedValueOnce({ data: [] });
+    mockedAxios.post.mockResolvedValue({});
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
     );
-    expect(background).toBeDefined();
-
-    const backgroundColorHexa = screen.getByText("#1C1C1C");
-    expect(backgroundColorHexa).toBeInTheDocument();
+    await userEvent.type(
+      screen.getByPlaceholderText("Gift URL"),
+      "https://media.tenor.com/SE6qhu-xHYcAAAAC/good-morning.gif"
+    );
+    mockedAxios.get.mockResolvedValue({
+      data: [
+        {
+          url: "https://media.tenor.com/SE6qhu-xHYcAAAAC/good-morning.gif",
+          author_id: 6,
+          id: 100,
+        },
+      ],
+    });
+    await userEvent.click(screen.getByText("Agregar"));
+    expect(mockedAxios.post).toBeCalledTimes(1);
+    expect(mockedAxios.get).toBeCalledTimes(2);
+    expect(
+      screen.getByAltText(
+        "https://media.tenor.com/SE6qhu-xHYcAAAAC/good-morning.gif"
+      )
+    ).toBeVisible();
   });
-
-  it("Should render Íconos section", () => {
-    render(<App />);
-
-    const deleteIcon = screen.getByText("Delete icon");
-    expect(deleteIcon).toBeInTheDocument();
-
-    const imageDeleteIcon = screen.getByAltText("Delete icon");
-    expect(imageDeleteIcon).toBeInTheDocument();
-
-    const warningIcon = screen.getByAltText("Warning icon");
-    expect(warningIcon).toBeInTheDocument();
-
-    const imageWarningIcon = screen.getByAltText("Warning icon");
-    expect(imageWarningIcon).toBeInTheDocument();
+  test("should show a message if something went wrong adding an image", async () => {
+    mockedAxios.get.mockResolvedValueOnce({ data: [] });
+    mockedAxios.post.mockResolvedValue({});
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    await userEvent.type(
+      screen.getByPlaceholderText("Gift URL"),
+      "https://media.tenor.com/SE6qhu-xHYcAAAAC/good-morning.gif"
+    );
+    mockedAxios.get.mockRejectedValue({});
+    await userEvent.click(screen.getByText("Agregar"));
+    expect(mockedAxios.post).toBeCalledTimes(1);
+    expect(mockedAxios.get).toBeCalledTimes(2);
+    expect(screen.getByAltText("Warning")).toBeVisible();
+    expect(screen.getByText("Something went wrong")).toBeVisible();
   });
-
-  it("Should render API REST section", () => {
-    render(<App />);
-
-    const title = screen.getByText("API REST");
-    expect(title).toBeInTheDocument();
-
-    const link = screen.getByText("Documentación de la API REST");
-    expect(link).toBeInTheDocument();
+  test("should show a message if something went wrong deleting an image", async () => {
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [
+        {
+          url: "https://media.tenor.com/SE6qhu-xHYcAAAAC/good-morning.gif",
+          author_id: 6,
+          id: 100,
+        },
+      ],
+    });
+    mockedAxios.delete.mockRejectedValue({});
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    await waitFor(() => {
+      screen.getByTestId("delete");
+    });
+    await userEvent.click(screen.getByTestId("delete"));
+    await userEvent.click(screen.getByText("Eliminar"));
+    expect(mockedAxios.delete).toBeCalledTimes(1);
+    expect(screen.getByAltText("Warning")).toBeVisible();
+    expect(screen.getByText("Something went wrong")).toBeVisible();
   });
-
-  it("Should render GIFs section", () => {
-    render(<App />);
-
-    const title = screen.getByText("GIFs");
-    expect(title).toBeInTheDocument();
-
-    const link = screen.getByText("Página de GIFs");
-    expect(link).toBeInTheDocument();
+  test("should show a message if something went wrong getting an image", async () => {
+    mockedAxios.get.mockRejectedValue({});
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    expect(mockedAxios.get).toBeCalledTimes(1);
+    await waitFor(() => {
+      screen.getByAltText("Warning");
+    });
+    expect(screen.getByAltText("Warning")).toBeVisible();
+    expect(screen.getByText("Something went wrong")).toBeVisible();
   });
 });

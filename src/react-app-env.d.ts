@@ -6,3 +6,7 @@ declare namespace NodeJS {
     REACT_APP_BFF_URL: string
   }
 }
+declare module "*.png";
+declare module "*.svg";
+declare module "*.jpeg";
+declare module "*.jpg";
