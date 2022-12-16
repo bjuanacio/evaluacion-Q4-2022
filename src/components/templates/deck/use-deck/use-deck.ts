@@ -1,14 +1,27 @@
+import { useEffect } from "react"
 import { useGiftContext } from "../../../../context/gift-context/gift-context"
 
 const useDeck = () => {
     const {
-        term, 
+        term,
+        giftsList, 
         handleAddGift, 
-        handleTerm
+        handleTerm,
+        getGiftsList
     } = useGiftContext()
 
+    const fetchData = () => {
+        getGiftsList()
+    }
+
+    useEffect(() => {
+      fetchData()
+    }, [])
+    
+
     return {
-        term, 
+        term,
+        giftsList, 
         handleAddGift, 
         handleTerm
     }

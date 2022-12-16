@@ -1,10 +1,13 @@
 import { createContext, FC, useContext } from "react";
+import { Gift } from "../../utils/interfaces/gift";
 import useGifts from "./use-gifts/use-gift";
 
 export interface GiftStateContext {
   term: string;
+  giftsList: Gift[];
   handleAddGift: any;
   handleTerm: any;
+  getGiftsList: any;
 }
 
 export interface GiftsProviderProps {
