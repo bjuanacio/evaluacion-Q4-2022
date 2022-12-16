@@ -2,61 +2,33 @@ import DeleteIcon from "./assets/delete-icon.svg";
 import WarningIcon from "./assets/warning-icon.svg";
 
 import "./app.scss";
+import { deleteGif, fetchGifs } from "./services/gif-service/gif-service";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { setGifList } from "./store/reducers/gif-slice";
+import GifCard from "./components/molecules/gif-card/gif-card";
+import AddGifInput from "./components/atoms/add-gif-input/add-gif-input";
 
 const App = () => {
+  const dispatch = useAppDispatch();
+  const fetchGifList = async () => {
+    dispatch(setGifList(await fetchGifs()));
+  };
+  useEffect(() => {
+    fetchGifList();
+  }, []);
+
+  const gifList = useAppSelector((state) => state.gif.gifList);
+
   return (
     <div className="app">
-      <h1>Evaluación Técnica Q4 2022</h1>
-      <section>
-        <h2>Colores</h2>
-        <div className="app__color-container">
-          <span className="app__color-title">Principal</span>
-          <div className="app__color app__color--main"></div>
-          <code>#B234B1</code>
-        </div>
-        <div className="app__color-container">
-          <span className="app__color-title">Fondo</span>
-          <div className="app__color app__color--background"></div>
-          <code>#1C1C1C</code>
-        </div>
-      </section>
-      <section>
-        <h2>Íconos</h2>
-        <div className="app__icon-container">
-          <div className="app__icon-description">
-            <img className="app__icon" src={DeleteIcon} alt="Delete icon" />
-            <span>Delete icon</span>
-          </div>
-          <div className="app__icon-description">
-            <img className="app__icon" src={WarningIcon} alt="Warning icon" />
-            <span className="app__color-title">Warning icon</span>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>API REST</h2>
-        <div>
-          <a
-            href="https://documenter.getpostman.com/view/21329689/2s8YsnYwZr"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Documentación de la API REST
-          </a>
-        </div>
-      </section>
-      <section>
-        <h2>GIFs</h2>
-        <div>
-          <a
-            href="https://tenor.com/es-419/search/avengers-gifs"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Página de GIFs
-          </a>
-        </div>
-      </section>
+      <h1 className="app__title">Gif Galery</h1>
+      <AddGifInput />
+      <div className="app__gifContainer">
+        {gifList.map((gif) => (
+          <GifCard url={gif.url} id={gif.id!} key={gif.id} />
+        ))}
+      </div>
     </div>
   );
 };
