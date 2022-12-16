@@ -14,7 +14,7 @@ export const TopBar: FC<TopBarProps> = (props) => {
     <div className="top-bar">
       <Input
         value={props.term}
-        placeholder="Buscar por nombre"
+        placeholder="Gift URL"
         onChange={props.handleTerm}
         type="text"
       />
