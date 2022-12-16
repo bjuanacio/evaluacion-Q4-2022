@@ -1,0 +1,25 @@
+.deck{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    color: #fff;
+  }
+  &__empty-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    height: 50px;
+  }
+  &__empty-icon {
+    object-fit: contain;
+    width: 25%;
+    height: 100%;
+  }
+  &__empty-message {
+    color: #fff;
+    font-size: 12px;
+  }
+}

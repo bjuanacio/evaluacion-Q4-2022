@@ -1,0 +1,48 @@
+.card {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  &__gif{
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &__actions-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 5px;
+  }
+  &__button-icon {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+  &__delete-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__delete-title {
+    text-align: center;
+    color: #fff;
+  }
+}

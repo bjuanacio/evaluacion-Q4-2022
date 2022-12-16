@@ -1,0 +1,18 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  &__field {
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    &--error {
+      border-color: red;
+    }
+  }
+  &__feedback {
+    &--error {
+      color: red;
+    }
+  }
+  
+}
