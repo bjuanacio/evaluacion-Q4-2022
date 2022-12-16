@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import GifService from "../../../../services/gif-service/gif-service";
 import Gif from "../../../../utils/interfaces/gif";
+import { UseGifGaleryPageReturn } from "./use-gif-galery-page.interfaces";
 
-const useGifGaleryPage = () => {
+const useGifGaleryPage = (): UseGifGaleryPageReturn => {
   const [gifs, setGifs] = useState<Gif[]>([]);
   const [url, setUrl] = useState<string>("");
   const [error, setError] = useState<string>("");

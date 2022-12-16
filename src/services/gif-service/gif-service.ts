@@ -2,9 +2,8 @@ import axios from "axios";
 import Gif from "../../utils/interfaces/gif";
 
 export default class GifService {
-  private static URL =
-    "https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws";
-  private static AUTHOR_ID = 9;
+  private static URL = process.env.REACT_APP_URL || "";
+  private static AUTHOR_ID = process.env.REACT_APP_AUTHOR_ID || 9;
 
   static async getGifsByAuthorId() {
     const response = await axios.get<Gif[]>(
