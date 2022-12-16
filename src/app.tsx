@@ -6,7 +6,7 @@ import "./app.scss";
 const App = () => {
   return (
     <div className="app">
-      <h1>Evaluación Técnica Q4 2023</h1>
+      <h1>Evaluación Técnica Q4 2022</h1>
       <section>
         <h2>Colores</h2>
         <div className="app__color-container">
