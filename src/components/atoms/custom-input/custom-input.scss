@@ -1,0 +1,19 @@
+.custom-input {
+  &__input {
+    padding-left: 5px;
+    outline: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+
+    &--error {
+      border: red 1px solid;
+    }
+  }
+
+  &__error {
+    color: red;
+    padding: 10px 0;
+    margin: 0;
+  }
+}
