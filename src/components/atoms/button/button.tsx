@@ -1,26 +1,29 @@
-import React, { FC } from "react";
+import { FC } from "react";
+
 import "./button.scss";
 
-export interface ButtonProps {
-  onClick?: () => void;
-  children?: React.ReactNode;
-  size?: "small";
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
   disabled?: boolean;
+  type?: "primary" | "secondary";
 }
 
-export const Button: FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
+  text,
   onClick,
-  children,
-  size,
-  disabled = false,
+  disabled,
+  type = "primary",
 }) => {
   return (
     <button
+      className={`button button--${type}`}
+      onClick={onClick}
       disabled={disabled}
-      className={`button ${size === "small" ? " button--small" : ""}`}
-      onClick={() => onClick!()}
     >
-      {children}
+      {text}
     </button>
   );
 };
+
+export default Button;

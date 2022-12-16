@@ -6,5 +6,6 @@ export enum infoText {
     DELETE_GIF_MODAL_BUTTON = 'Eliminar',
     CANCEL_DELETE_GIF_MODAL_BUTTON = 'Cancelar',
     GIF_ERROR = 'Url no valida',
-    PLACEHOLDER_GIF_TITLE = 'Gif URL'
+    PLACEHOLDER_GIF_TITLE = 'Gif URL',
+    ERROR_GIF_MESSAGE = "Error al agregar gif"
 }
