@@ -1,0 +1,20 @@
+.message {
+  &__text {
+    color: #fff;
+    font-size: x-large;
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  &--container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+}
