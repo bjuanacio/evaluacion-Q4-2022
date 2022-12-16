@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import "./grid.scss";
 
-interface GridProps {}
+interface GridProps {
+    
+}
 
 export const Grid: FC<GridProps> = ({}) => {
   return (
