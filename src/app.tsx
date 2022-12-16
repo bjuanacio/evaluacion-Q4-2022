@@ -3,12 +3,17 @@ import WarningIcon from "./assets/warning-icon.svg";
 
 import "./app.scss";
 import { Button } from "./components/atoms/button/button";
+import { Input } from "./components/atoms/input/input";
 
 const App = () => {
   return (
     <div className="app">
 
+      <div>
+      <Input placeholder="Gift url" />
       <Button>Agregar</Button>
+      
+      </div>
       <h1>Evaluación Técnica Q4 2022</h1>
       <section>
         <h2>Colores</h2>
