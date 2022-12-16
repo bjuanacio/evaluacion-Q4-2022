@@ -22,6 +22,7 @@ export const deleteGift = async (id: number) => {
     author_id: author_id,
   };
   await axios.delete(`${API_URL}`, body);
+  return true
 };
 
 export const addGift = async (url: string) => {
@@ -30,4 +31,5 @@ export const addGift = async (url: string) => {
     author_id: author_id,
   };
   await axios.post(`${API_URL}`, body);
+  return true
 };

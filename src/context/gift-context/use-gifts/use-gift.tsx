@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getGifts } from "../../../services/gift.service";
+import { addGift, getGifts } from "../../../services/gift.service";
 import { GiftStateContext } from "../gift-context";
 
 const useGifts = (initialValues?: Partial<GiftStateContext>) => {
@@ -7,7 +7,7 @@ const useGifts = (initialValues?: Partial<GiftStateContext>) => {
   const [giftsList, setGiftsList] = useState(initialValues?.giftsList || [])
 
   const handleAddGift = () => {
-    console.log(term)
+    addGift(term)
   }
 
   const handleTerm = (term: string) => {
