@@ -9,13 +9,14 @@ import InterfaceSimple from "./components/molecules/interfacesimple/interfacesim
 import React from "react";
 import Interfacesimple from "./components/molecules/interfacesimple/interfacesimple";
 import Card from "./components/atoms/card/card";
+import Cards from "./components/molecules/cards/cards";
 
 const App = () => {
   return (
     <div className="app__color--background">
         <Label children="Gif Galery" size="large"/>
         <Interfacesimple/>
-        <Card image="https://media.tenor.com/9LTaB5Ezn0UAAAAM/reface.gif"/>
+        <Cards/>
     </div>);
 };
 
