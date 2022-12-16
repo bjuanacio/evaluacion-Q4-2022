@@ -1,0 +1,17 @@
+.galery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        &__input {
+            width: 300px ;
+        }
+        &__btn {
+            margin-left: 40px;
+        }
+    }
+}
