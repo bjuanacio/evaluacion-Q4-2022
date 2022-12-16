@@ -12,10 +12,9 @@ export const fetchGifs = async () => {
 };
 
 export const deleteGif = async (gif: Gif) => {
-  await axios.delete(API_URL);
+  await axios.delete(API_URL, { data: {...gif}});
   return true;
 };
- 
 
 export const addGif= async (gif: Gif) => {
   const response = await axios.post<Gif>(`${API_URL}`, gif);

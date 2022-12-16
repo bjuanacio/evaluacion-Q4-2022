@@ -14,22 +14,21 @@ export const useGifs = (initialValues?: Partial<GifsStateContext>) => {
     initialValues?.gifsList || []
   );
 
-  const addGif = (url: string) => {
+  const addGif = async (url: string) => {
     const gif = {
-      author_id: AUTHOR_ID ?? '',
+      author_id: parseInt(AUTHOR_ID ?? "0"),
       url: url,
-      id: '1'
     };
-    addGifService(gif).then(() => getGifs());
+    await addGifService(gif);
+    await getGifs();
   };
 
-  const getGifs = () => {
-    getGifsService().then((data: Gif[]) => {
-      setGifsList(data);
-    });
+  const getGifs = async () => {
+    const data = await getGifsService();
+    setGifsList(data);
   };
 
-  const deleteGif = (gif: Gif) => deleteGifService(gif);
+  const deleteGif = async (gif: Gif) => await deleteGifService(gif);
 
   return {
     gifsList,
