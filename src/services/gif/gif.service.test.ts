@@ -1,0 +1,43 @@
+import axios from 'axios'
+import { Gif } from '../../utils/interfaces/gif'
+import { fetchGifs, addGif, deleteGif } from './gif.service'
+
+jest.mock('axios')
+const mockAxios = axios as jest.Mocked<typeof axios>
+
+describe('Gif Service', () => {
+  it('should return gif lists', async () => {
+    const gifs: Gif[] = [
+      {
+        id: 1, 
+        author_id: 15,
+        url: 'https://media.tenor.com/Q4qyZizrNGMAAAAi/thor-love-and-thunder-marvel-studios.gif'
+      }
+    ]
+    jest.spyOn(axios, 'get').mockResolvedValue({ data: gifs })
+    const gifsResponse = await fetchGifs()
+    expect(gifsResponse).toEqual(gifs)
+  })
+
+  it('should return gif when addGif is called', async () => {
+    const gif: Gif = {
+      id: 1,
+      author_id: 15,
+      url: 'https://media.tenor.com/Q4qyZizrNGMAAAAi/thor-love-and-thunder-marvel-studios.gif'
+    }
+    jest.spyOn(axios, 'post').mockResolvedValue({ data: gif })
+    const gifsResponse = await addGif(gif)
+    expect(gifsResponse).toEqual(gif)
+  })
+
+   
+
+  it('should delete gif when deleteGif is called', async () => {
+    mockAxios.delete.mockResolvedValue({ data: {} })
+
+    const gifsResponse = await deleteGif(1)
+
+    expect(gifsResponse).toEqual(true)
+  })
+ 
+})
