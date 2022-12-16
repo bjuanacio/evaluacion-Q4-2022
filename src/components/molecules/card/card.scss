@@ -1,0 +1,62 @@
+.card {
+  border-radius: 20px;
+  background-color: var(--black-color);
+  color: white;
+  height: 450px;
+  overflow: hidden;
+
+  &__body {
+    position: relative;
+    height: 300px;
+    width: 100%;
+  }
+
+  &__delete {
+    display: flex;
+    background-color: #00000089;
+    width: 80%;
+    height: 300px;
+    flex-direction: column;
+    gap: 25px;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    border-radius: 8px;
+    p {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    @media screen and (min-width: 1024px) {
+      width: 85%;
+      min-height: 100%;
+    }
+  }
+
+  &__buttons-wrapper {
+    position: absolute;
+    top: 10;
+    right: 20px;
+    z-index: 1;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    @media screen and (min-width: 1024px) {
+      right: 55px;
+    }
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+  }
+}

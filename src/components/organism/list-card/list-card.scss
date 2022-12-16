@@ -1,0 +1,41 @@
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin: 0 auto;
+    text-align: center;
+    margin: 50px;
+  }
+}
+.cards-grid {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  gap: 1rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &__item {
+    width: 32.2%;
+
+    @media screen and (min-width: 1024px) {
+      width: 20.3%;
+    }
+
+    @media screen and (max-width: 900px) {
+      width: 48%;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}
