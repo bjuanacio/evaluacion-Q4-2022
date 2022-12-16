@@ -67,7 +67,7 @@ const App: React.FC = observer(() => {
         {!store?.AllGifs && (
           <div>
             <img className="app__icon" src={WarningIcon} alt="Warning icon" />
-            <p>No hay Gifs</p>
+            <p className="app__empty">No hay Gifs</p>
           </div>
         )}
       </div>

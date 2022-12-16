@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Input } from "./Input";
 
 describe("Input", () => {
@@ -14,7 +14,7 @@ describe("Input", () => {
     const gifInput = screen.getByPlaceholderText("gif name");
     expect(gifInput).toBeDefined();
     expect(gifInput).toHaveTextContent("");
-    // userEvent.type(gifInput, "new gif");
-    // expect(gifInput).toHaveValue("new gif");
+    fireEvent.change(gifInput, { target: { value: "new gif" } });
+    expect(gifInput).toHaveValue("new gif");
   });
 });
