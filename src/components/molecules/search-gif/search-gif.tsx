@@ -17,8 +17,6 @@ const SearchGif: FC<SearchGifProps> = ({
   inputValue,
   errorMessage,
 }) => {
-  const isButtonDisabled = !inputValue;
-
   return (
     <div className="search-gif">
       <Input
@@ -27,7 +25,7 @@ const SearchGif: FC<SearchGifProps> = ({
         value={inputValue}
         error={errorMessage}
       />
-      <Button text="Agregar" onClick={onClick} disabled={isButtonDisabled} />
+      <Button text="Agregar" onClick={onClick} />
     </div>
   );
 };

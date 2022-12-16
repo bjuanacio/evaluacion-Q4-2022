@@ -5,6 +5,11 @@
   gap: 1.5rem;
   padding: 2.5rem 0;
 
+  @media (max-width: 376px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   &__description {
     font-size: 24px;
   }

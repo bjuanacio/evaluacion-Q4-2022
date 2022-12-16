@@ -13,6 +13,7 @@ const useGifGaleryPage = () => {
   };
 
   const addGif = async () => {
+    if (!url) return setError("Debe ingresar una url");
     try {
       setError("");
       const responseGif = await GifService.postNewGif(url);
@@ -20,6 +21,7 @@ const useGifGaleryPage = () => {
       setUrl("");
     } catch (error) {
       setError("Error al agregar gif");
+      setUrl("");
     }
   };
 

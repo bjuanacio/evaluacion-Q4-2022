@@ -6,6 +6,7 @@
   transition: all 0.3s ease;
   border-radius: 10px;
   cursor: pointer;
+  max-height: 49px;
 
   &--primary {
     background-color: var(--main);

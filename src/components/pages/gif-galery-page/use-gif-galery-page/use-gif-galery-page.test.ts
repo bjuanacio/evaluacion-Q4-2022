@@ -79,11 +79,25 @@ describe("useGifGaleryPage tests", () => {
       mockedGifService.postNewGif.mockRejectedValue(new Error());
       const { result } = renderHook(() => useGifGaleryPage());
 
+      act(() => {
+        result.current.handleSearchInput("test");
+      });
+
       await act(async () => {
         await result.current.addGif();
       });
 
       expect(result.current.error).toEqual("Error al agregar gif");
+    });
+
+    it("should setError when addGif is called with an empty url", async () => {
+      const { result } = renderHook(() => useGifGaleryPage());
+
+      await act(async () => {
+        await result.current.addGif();
+      });
+
+      expect(result.current.error).toEqual("Debe ingresar una url");
     });
   });
 

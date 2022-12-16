@@ -11,9 +11,14 @@ interface GifListProps {
 }
 
 const GifList: FC<GifListProps> = ({ gifs, onDelete }) => {
+  const isEmpty = gifs.length === 0;
+
   return (
-    <div className="gif-list" data-testid="giflist-testid">
-      {gifs.length === 0 ? (
+    <div
+      className={`gif-list ${isEmpty ? "gif-list--empty" : ""}`}
+      data-testid="giflist-testid"
+    >
+      {isEmpty ? (
         <EmptyGifList />
       ) : (
         <>
