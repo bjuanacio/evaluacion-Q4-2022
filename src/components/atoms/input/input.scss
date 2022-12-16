@@ -1,0 +1,21 @@
+.input {
+    height: 100%;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    border: 1px lightgray solid;
+
+    &__text-box {
+        border: none;
+        width: 100%;
+        display: block;
+    }
+
+    &--error {
+        border: 2px solid red;
+    }
+
+}
