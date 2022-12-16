@@ -1,0 +1,24 @@
+.button {
+    background-color: rgb(129, 13, 133) !important;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:disabled {
+      background-color: rgb(169, 145, 170);
+      pointer-events: none;
+    }
+    &__field {
+        background-color: rgb(129, 13, 133) !important;
+    }
+  
+    &--small {
+      padding: 0.5rem;
+      background-color:  rgb(122, 23, 126) !important;
+    }
+  }
+  
