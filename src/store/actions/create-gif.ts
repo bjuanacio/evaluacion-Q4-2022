@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import GifAPI from "../../services/gif-service";
 import { Gif } from "../reducers/gifs";
 
-//TODO: UPDATE AUTHORID
 
 const createGif = createAsyncThunk(
   "gifs/create",

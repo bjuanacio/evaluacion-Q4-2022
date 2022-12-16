@@ -20,6 +20,8 @@ const App = () => {
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     dispatch(createGif({ url: newGifInput, author_id: 6 }));
+    setNewGifInput("");
+
   };
 
   return (
