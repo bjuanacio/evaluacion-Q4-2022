@@ -1,7 +1,6 @@
 .app {
   max-width: 1024px;
   margin: auto;
-
   &__color-container {
     display: flex;
     align-items: center;
@@ -9,7 +8,7 @@
   }
 
   &__color-title {
-    min-width: 70px
+    min-width: 70px;
   }
 
   &__color {
@@ -41,4 +40,32 @@
     width: 70px;
     height: 70px;
   }
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: white;
+}
+
+.button {
+  border: none;
+  color: #b234b1;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
