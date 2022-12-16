@@ -1,12 +1,16 @@
 import DeleteIcon from "./assets/delete-icon.svg";
 import WarningIcon from "./assets/warning-icon.svg";
+import React, { useState, useEffect } from "react";
 
 import "./app.scss";
+import { Button } from "./components/atoms/button/button";
+import { Input } from "./components/atoms/input/input"
+import { Gif } from "./utils/interfaces/gif";
 
 const App = () => {
   return (
     <div className="app">
-      <h1>Evaluación Técnica Q4 2022</h1>
+      <h1>Gif Galery</h1>
       <section>
         <h2>Colores</h2>
         <div className="app__color-container">
@@ -57,6 +61,10 @@ const App = () => {
           </a>
         </div>
       </section>
+      <Button>Agregar</Button>
+      <Input onChange={function (value: string, name?: keyof Gif | undefined): void {
+        throw new Error("Function not implemented.");
+      } }></Input>
     </div>
   );
 };
