@@ -1,16 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Gif } from "../../../../utils/interfaces/gif";
+import { useGifsContext } from "../../../../context/gifs-context/gifs-context";
 
 export const useGallery = () => {
   const [inputUrl, setInputUrl] = useState("");
-  const [gifs, setGifs] = useState("");
-
-  const handleUrlInputChange = (text: string) => setInputUrl(text);
-
-  const handleAddClick = () => console.log(inputUrl);
-
-  const handleDeleteClick = (gif: Gif) => console.log(gif);
-
+  const [errorInService, setErrorInService] = useState(false)
+  const { addGif, gifsList, deleteGif, getGifs } = useGifsContext();
 
   const mockGifs = [
     {
@@ -45,6 +40,18 @@ export const useGallery = () => {
     },
   ];
 
+  const handleUrlInputChange = (text: string) => setInputUrl(text);
+
+  const handleAddClick = () => addGif(inputUrl);
+
+  const handleDeleteClick = (gif: Gif) => console.log(gif);
+
+  const fetchGifs = () => getGifs();
+
+  useEffect(() => {
+    fetchGifs();
+  }, []);
+
   return {
     inputUrl,
     setInputUrl,
@@ -52,8 +59,8 @@ export const useGallery = () => {
     handleAddClick,
     handleDeleteClick,
     mockGifs,
-    gifs,
-    setGifs
+    gifsList,
+    errorInService,
   };
 };
 

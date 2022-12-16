@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MutableRefObject } from "react";
 import "./input.scss";
 
 export interface InputProps {
@@ -9,6 +9,7 @@ export interface InputProps {
   value?: string;
   variant?: "error" | "normal";
   className?: string;
+  inputRef?: MutableRefObject<HTMLInputElement | null>
 }
 
 export const Input: FC<InputProps> = ({
@@ -19,6 +20,7 @@ export const Input: FC<InputProps> = ({
   value,
   variant,
   className,
+  inputRef,
 }) => {
   return (
     <div className={`input  ${className}`}>
@@ -32,6 +34,7 @@ export const Input: FC<InputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value, name)}
+        ref={inputRef}
       />
       <span className="input__error-message">{errorMessage}</span>
     </div>

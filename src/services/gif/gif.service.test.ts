@@ -8,15 +8,15 @@ const mockAxios = axios as jest.Mocked<typeof axios>;
 describe("Gif Service", () => {
   const gifs: Gif[] = [
     {
-      id: 1,
-      author_id: 15,
+      id: '1',
+      author_id: '15',
       url: "https://media.tenor.com/Q4qyZizrNGMAAAAi/thor-love-and-thunder-marvel-studios.gif",
     },
   ];
 
   const mockGif: Gif = {
-    id: 1,
-    author_id: 15,
+    id: '1',
+    author_id: '15',
     url: "https://media.tenor.com/Q4qyZizrNGMAAAAi/thor-love-and-thunder-marvel-studios.gif",
   };
 

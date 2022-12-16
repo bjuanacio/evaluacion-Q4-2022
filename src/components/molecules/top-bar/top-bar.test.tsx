@@ -6,7 +6,7 @@ describe("TopBar", () => {
   const handleClick = jest.fn();
   it("should render input text and button", () => {
     render(
-      <TopBar handleUrlInputChange={handleInput} handleAddClick={handleClick} />
+      <TopBar handleUrlInputChange={handleInput} handleAddClick={handleClick} errorInService={false} />
     );
     expect(screen.getByRole("textbox")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();

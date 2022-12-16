@@ -13,7 +13,7 @@ export const ImageGrid: FC<ImageGridProps> = ({ gifs, handleGifDelete }) => {
     <Card key={gif.id} gif={gif} handleDeleteClick={handleGifDelete} />
   );
   return (
-    <div className="image-grid" data-testID="image-grid">{gifs.map((gif: Gif) => renderItem(gif))}</div>
+    <div className="image-grid" data-testid="image-grid">{gifs.map((gif: Gif) => renderItem(gif))}</div>
   );
 };
 

@@ -1,5 +1,5 @@
 export interface Gif {
-    id: number;
+    id: string;
     url: string;
-    author_id: number
+    author_id: string
 }

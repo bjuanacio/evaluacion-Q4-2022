@@ -6,7 +6,7 @@ describe("Header", () => {
   const handleClick = jest.fn();
   it("should render a title", () => {
     render(
-      <Header title="Gif Galery" handleUrlInputChange={handleInput} handleAddClick={handleClick} />
+      <Header title="Gif Galery" handleUrlInputChange={handleInput} handleAddClick={handleClick} errorInService={false} />
     );
     expect(screen.getByText("Gif Galery")).toBeInTheDocument(); 
   });

@@ -4,7 +4,7 @@ import "./gallery.scss";
 import useGallery from "./use-gallery/use-gallery";
 
 export const Gallery = () => {
-  const { handleAddClick, handleUrlInputChange, mockGifs, handleDeleteClick } =
+  const { handleAddClick, handleUrlInputChange, gifsList, handleDeleteClick, errorInService } =
     useGallery();
 
   return (
@@ -13,9 +13,10 @@ export const Gallery = () => {
         handleAddClick={handleAddClick}
         handleUrlInputChange={handleUrlInputChange}
         title="Gif Gallery"
+        errorInService={errorInService}
       />
 
-      <ImageGrid gifs={mockGifs} handleGifDelete={handleDeleteClick} />
+      <ImageGrid gifs={gifsList} handleGifDelete={handleDeleteClick} />
     </div>
   );
 };

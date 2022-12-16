@@ -6,12 +6,14 @@ interface HeaderProps {
   handleUrlInputChange: (url: string) => void;
   handleAddClick: () => void;
   title: string
+  errorInService: boolean
 }
 
 export const Header: FC<HeaderProps> = ({
   handleUrlInputChange,
   handleAddClick,
   title,
+  errorInService
 }) => {
   return (
     <div className="header">
@@ -19,6 +21,7 @@ export const Header: FC<HeaderProps> = ({
       <TopBar
         handleUrlInputChange={handleUrlInputChange}
         handleAddClick={handleAddClick}
+        errorInService={errorInService}
       />
     </div>
   );

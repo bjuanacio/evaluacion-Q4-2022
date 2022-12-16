@@ -1,11 +1,12 @@
 import { createContext, FC, useContext } from "react";
-import { Gif } from "../utils/interfaces/gif";
+import { Gif } from "../../utils/interfaces/gif";
 import useGifs from "./use-gifs/use-gifs";
 
 export interface GifsStateContext {
   gifsList: Gif[];
-  addGif: (gif: Gif) => void;
+  addGif: (url: string) => void;
   deleteGif: (gif: Gif) => void;
+  getGifs: () => void
 }
 
 export interface GifsProviderProps {
