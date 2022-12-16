@@ -1,0 +1,33 @@
+.button {
+  background-color: var(--main);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: #772277;
+  }
+
+  &--void {
+    background: none;
+    padding: 0;
+    &:hover {
+      background: none;
+    }
+  }
+  &--small {
+    width: 15px;
+  }
+  &--inverse {
+    background-color: #fff;
+    color: var(--main);
+    border: 2px solid var(--main);
+
+    &:hover {
+      background-color: rgb(198, 198, 198);
+    }
+  }
+}
