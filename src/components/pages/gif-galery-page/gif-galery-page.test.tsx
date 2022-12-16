@@ -1,14 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import GifGaleryPage from "./gif-galery-page";
-import GifService from "../../../services/gif-service/gif-service";
-import { mockedGifs } from "../../../utils/constants/gifs";
+import useGifGaleryPage from "./use-gif-galery-page/use-gif-galery-page";
 
-jest.mock("../../../services/gif-service/gif-service");
-const mockedGifService = GifService as jest.Mocked<typeof GifService>;
+jest.mock("./use-gif-galery-page/use-gif-galery-page");
+const mockedUseGifGaleryPage = useGifGaleryPage as jest.MockedFunction<
+  typeof useGifGaleryPage
+>;
 
 describe("GifGaleryPage tests", () => {
   beforeEach(() => {
-    mockedGifService.getGifsByAuthorId.mockResolvedValue(mockedGifs);
+    mockedUseGifGaleryPage.mockReturnValue({
+      addGif: jest.fn(),
+      deleteGif: jest.fn(),
+      error: "",
+      gifs: [],
+      handleSearchInput: jest.fn(),
+      url: "",
+    });
   });
 
   it("should render GifGalery title, input and list", () => {
