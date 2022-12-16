@@ -5,25 +5,35 @@ import userEvent from "@testing-library/user-event";
 describe("Input", () => {
   const onChange = jest.fn();
   it("should render input text", () => {
-    render(<Input />);
+    render(<Input onChange={onChange} />);
     expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
-  it("should render based on props", () => {
-    render(<Input placeholder="test" />);
+  it("should render with placeholder", () => {
+    render(<Input onChange={onChange} placeholder="test" />);
     expect(screen.getByRole("textbox")).toHaveAttribute("placeholder", "test");
-    expect(screen.getByRole("textbox")).toHaveValue("test");
   });
 
   it("should show error message", () => {
-    render(<Input errorMessage="error" />);
+    render(<Input onChange={onChange} errorMessage="error" />);
     const errorMessage = screen.getByText("error");
     expect(errorMessage).toBeInTheDocument();
   });
 
   it("should show red input when variant is error", () => {
-    render(<Input variant="error" errorMessage="error" />);
+    render(<Input onChange={onChange} variant="error" errorMessage="error" />);
     const input = screen.getByRole("textbox");
     expect(input).toHaveClass("input__field--error");
+  });
+
+  it("should call onChange", async () => {
+    render(<Input onChange={onChange} />);
+    const input = screen.getByRole("textbox");
+
+    expect(onChange).toBeCalledTimes(0);
+
+    await userEvent.type(input, "test");
+
+    expect(onChange).toBeCalledTimes(4);
   });
 });

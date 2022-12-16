@@ -2,20 +2,26 @@ import { FC } from "react";
 import "./input.scss";
 
 export interface InputProps {
-  placeholder?: string;
   errorMessage?: string;
-  variant?: "error" | "normal";
   name?: string;
+  onChange: (value: string, name?: string) => void;
+  placeholder?: string;
+  value?: string;
+  variant?: "error" | "normal";
+  className?: string;
 }
 
 export const Input: FC<InputProps> = ({
-  placeholder,
-  name,
   errorMessage,
+  name,
+  onChange,
+  placeholder,
+  value,
   variant,
+  className,
 }) => {
   return (
-    <div className="input">
+    <div className={`input  ${className}`}>
       <input
         name={name}
         id={name}
@@ -24,6 +30,8 @@ export const Input: FC<InputProps> = ({
         }`}
         type="text"
         placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value, name)}
       />
       <span className="input__error-message">{errorMessage}</span>
     </div>
