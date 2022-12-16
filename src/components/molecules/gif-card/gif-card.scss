@@ -1,0 +1,46 @@
+.gif-card {
+    position: relative;
+    height: 280px;
+
+    &__image {
+        max-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__delete-icon {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+    }
+
+    &__menu {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(28, 28, 28, 0.6);
+
+        display: none;
+
+        &--opened {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    &__menu-button {
+        margin-bottom: 8px;
+        width: 50%;
+        text-align: center;
+    }
+
+    &__menu-title {
+        color: white;
+        font-size: 1.3rem;
+        text-align: center;
+
+    }
+}
