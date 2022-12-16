@@ -15,9 +15,7 @@ describe("useGifGaleryPage tests", () => {
   it("should return an object with the expected properties", async () => {
     const { result } = renderHook(() => useGifGaleryPage());
 
-    await waitFor(() => {
-      expect(result.current.gifs).toEqual([]);
-    });
+    await waitFor(() => expect(result.current.gifs).toEqual([]));
 
     expect(result.current).toHaveProperty("url");
     expect(result.current).toHaveProperty("handleSearchInput");
@@ -32,18 +30,16 @@ describe("useGifGaleryPage tests", () => {
       mockedGifService.getGifsByAuthorId.mockResolvedValue(mockedGifs);
       const { result } = renderHook(() => useGifGaleryPage());
 
-      await waitFor(() => {
-        expect(result.current.gifs).toEqual(mockedGifs);
-      });
+      await waitFor(() => expect(result.current.gifs).toEqual(mockedGifs));
     });
 
     it("should setError when GifService.getGifsByAuthorId throws an error", async () => {
       mockedGifService.getGifsByAuthorId.mockRejectedValue(new Error());
       const { result } = renderHook(() => useGifGaleryPage());
 
-      await waitFor(() => {
-        expect(result.current.error).toEqual("Error al obtener gifs");
-      });
+      await waitFor(() =>
+        expect(result.current.error).toEqual("Error al obtener gifs")
+      );
     });
   });
 
@@ -106,9 +102,7 @@ describe("useGifGaleryPage tests", () => {
       mockedGifService.getGifsByAuthorId.mockResolvedValue(mockedGifs);
       const { result } = renderHook(() => useGifGaleryPage());
 
-      await waitFor(() => {
-        expect(result.current.gifs).toEqual(mockedGifs);
-      });
+      await waitFor(() => expect(result.current.gifs).toEqual(mockedGifs));
 
       await act(async () => {
         await result.current.deleteGif(mockedGifs[0].id, mockedGifs[0].url);
@@ -125,9 +119,7 @@ describe("useGifGaleryPage tests", () => {
       mockedGifService.getGifsByAuthorId.mockResolvedValue(mockedGifs);
       const { result } = renderHook(() => useGifGaleryPage());
 
-      await waitFor(() => {
-        expect(result.current.gifs).toEqual(mockedGifs);
-      });
+      await waitFor(() => expect(result.current.gifs).toEqual(mockedGifs));
 
       mockedGifService.deleteGif.mockRejectedValue(new Error());
 
