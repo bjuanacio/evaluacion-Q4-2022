@@ -1,0 +1,21 @@
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 20px;
+
+  &__cards {
+    flex-grow: 4;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__not-found {
+    display: flex;
+
+    &__text {
+      color: white;
+    }
+  }
+}

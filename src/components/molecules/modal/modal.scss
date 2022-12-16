@@ -1,0 +1,14 @@
+.modal {
+  position: relative;
+  margin: auto;
+  border-radius: 16px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  top: -220px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: rgba(22, 18, 18, 0.334);
+}
