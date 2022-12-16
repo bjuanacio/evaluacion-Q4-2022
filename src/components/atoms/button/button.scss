@@ -1,0 +1,29 @@
+.button {
+  background-color: var(--main);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 55px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &--sec {
+    background-color: white;
+    color: var(--main);
+    border: 1px solid var(--main);
+    height: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: darkgrey;
+    pointer-events: none;
+  }
+}

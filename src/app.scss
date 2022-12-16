@@ -1,6 +1,16 @@
 .app {
   max-width: 1024px;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+ 
+
+
+
+
 
   &__color-container {
     display: flex;
@@ -41,4 +51,6 @@
     width: 70px;
     height: 70px;
   }
+
+
 }
