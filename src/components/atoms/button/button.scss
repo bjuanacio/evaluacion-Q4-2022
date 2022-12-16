@@ -1,0 +1,21 @@
+.button {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &--primary {
+    background-color: var(--main);
+    color: white;
+    border: none;
+  }
+
+  &--secondary {
+    background-color: white;
+    color: var(--main);
+    border: 2px solid var(--main);
+  }
+}
