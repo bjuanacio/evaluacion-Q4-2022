@@ -21,8 +21,8 @@ const InterfaceSimple = () => {
 
     }
 
-    const OnChange= (prop:keyof Object, value: any)=>{
-        setObjPost({...objPost,[prop]:value});
+    const OnChange= (event: React.ChangeEvent<HTMLInputElement>)=>{
+        setObjPost(event.target.value);
     }
 
     return (
@@ -30,7 +30,7 @@ const InterfaceSimple = () => {
             <Input
                 value={objPost.url}
                 name="addGifs"
-                onChange={()=>OnChange("url",34)}
+                onChange={()=>OnChange}
                 placeHolder="Gift URL"/>
 
             <Button onClick={()=>Agregar()} children="Agregar" size="small"/>
