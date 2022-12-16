@@ -2,9 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Card from "./card/card";
-import reducer from "../../store/reducers/gifs";
-import { mockedAxios } from "../../setupTests";
+import Card from "./card";
+import reducer from "../../../store/reducers/gifs";
+import { mockedAxios } from "../../../setupTests";
 
 describe("card", () => {
   test("should show the image", async () => {

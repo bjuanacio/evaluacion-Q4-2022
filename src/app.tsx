@@ -24,24 +24,27 @@ const App = () => {
 
   return (
     <div className="app">
-      <div>
+      <h1 className="app__title">Gif gallery</h1>
+      <section className="app__head">
         <Input
           placeholder="Gift URL"
           onChange={(e) => setNewGifInput(e.target.value)}
           value={newGifInput}
         />
         <Button onClick={(e) => handleSubmit(e)}>Agregar</Button>
-      </div>
-      <div>
+      </section>
+      <section className="app__images">
         {Boolean(gifs?.length) &&
           gifs.map((gif) => <Card gif={gif} key={gif.id} />)}
-      </div>
-      <div>{Boolean(state === "failed") && 
-      <div>
-        <img src={WarningIcon} alt="Warning" />
-        <span>Something went wrong</span>
-      </div>
-      }</div>
+      </section>
+      <section>
+        {Boolean(state === "failed") && (
+          <div>
+            <img src={WarningIcon} alt="Warning" />
+            <span>Something went wrong</span>
+          </div>
+        )}
+      </section>
     </div>
   );
 };
