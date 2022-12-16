@@ -1,0 +1,20 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  &__field {
+    width: 330px;
+    border: 2px solid lightgray;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    &--error {
+      border: 2px solid red;
+    }
+  }
+
+  &__error-message {
+    color: red;
+  }
+}

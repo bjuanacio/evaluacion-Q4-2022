@@ -1,0 +1,14 @@
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__input {
+    margin-right: 30px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
