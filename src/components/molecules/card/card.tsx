@@ -14,7 +14,7 @@ export const Card: FC<CardProps> = ({ gif, handleDeleteClick }) => {
   return (
     <div className="card">
       <img src={gif.url} alt="gif" />
-      <Button type="icon" className="card__delete">
+      <Button type="icon" className="card__delete" onClick={() => handleDeleteClick(gif)}>
         <img src={DeleteIcon} alt="Delete icon" />
       </Button>
     </div>

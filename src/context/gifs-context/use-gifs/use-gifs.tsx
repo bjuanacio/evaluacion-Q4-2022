@@ -28,7 +28,10 @@ export const useGifs = (initialValues?: Partial<GifsStateContext>) => {
     setGifsList(data);
   };
 
-  const deleteGif = async (gif: Gif) => await deleteGifService(gif);
+  const deleteGif = async (gif: Gif) => {
+    await deleteGifService(gif);
+    await getGifs();
+  }
 
   return {
     gifsList,
