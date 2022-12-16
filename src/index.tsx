@@ -5,10 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./index.scss";
 import App from "./app";
+import Gifs from "./components/pages/gifs";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Gifs />
   </React.StrictMode>,
   document.getElementById("root")
 );
