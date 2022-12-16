@@ -1,16 +1,26 @@
 import { render, screen } from "@testing-library/react";
-import App from "./app";
+import { Provider } from "react-redux";
+import App from "./app-demo";
+import { store } from "./store/store";
 
 describe("App component", () => {
+  const WrappedApp = () => {
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  };
+
   it("Should render the title", () => {
-    render(<App />);
+    render(<WrappedApp />);
 
     const title = screen.getByText("Evaluación Técnica Q4 2022");
     expect(title).toBeInTheDocument();
   });
 
   it("Should render Colores section", () => {
-    const { container } = render(<App />);
+    const { container } = render(<WrappedApp />);
 
     const titleColors = screen.getByText("Colores");
     expect(titleColors).toBeInTheDocument();
@@ -37,7 +47,7 @@ describe("App component", () => {
   });
 
   it("Should render Íconos section", () => {
-    render(<App />);
+    render(<WrappedApp />);
 
     const deleteIcon = screen.getByText("Delete icon");
     expect(deleteIcon).toBeInTheDocument();
@@ -53,7 +63,7 @@ describe("App component", () => {
   });
 
   it("Should render API REST section", () => {
-    render(<App />);
+    render(<WrappedApp />);
 
     const title = screen.getByText("API REST");
     expect(title).toBeInTheDocument();
@@ -63,7 +73,7 @@ describe("App component", () => {
   });
 
   it("Should render GIFs section", () => {
-    render(<App />);
+    render(<WrappedApp />);
 
     const title = screen.getByText("GIFs");
     expect(title).toBeInTheDocument();
