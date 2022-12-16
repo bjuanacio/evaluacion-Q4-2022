@@ -1,0 +1,15 @@
+.button{
+ 
+padding: 16px;
+  border: none;
+  border-radius: 10px  ;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgb(159, 52, 195) 0%,
+    rgb(97, 28, 114) 100%
+  );
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+}
