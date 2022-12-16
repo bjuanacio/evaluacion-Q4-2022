@@ -2,6 +2,7 @@ import DeleteIcon from "./assets/delete-icon.svg";
 import WarningIcon from "./assets/warning-icon.svg";
 
 import "./app.scss";
+import GifService from "./services/gif-service/gif-service";
 
 const App = () => {
   return (
@@ -57,6 +58,30 @@ const App = () => {
           </a>
         </div>
       </section>
+      <button
+        onClick={async () => {
+          const response = await GifService.getGifsByAuthorId();
+          console.log(response);
+        }}
+      >
+        GET
+      </button>
+      <button
+        onClick={async () => {
+          const response = await GifService.postNewGif("TESTFROMBUTTON.com");
+          console.log(response);
+        }}
+      >
+        POST
+      </button>
+      <button
+        onClick={async () => {
+          const response = await GifService.deleteGif(12, "TEST.com");
+          console.log(response);
+        }}
+      >
+        DELETE
+      </button>
     </div>
   );
 };
