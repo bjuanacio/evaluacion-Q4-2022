@@ -1,0 +1,53 @@
+.gifcard {
+  &__container {
+    height: 300px;
+    width: 185px;
+    position: relative;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  &__deleteIcon {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    right: 0px;
+  }
+  &__remove {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  &__question {
+    color: white;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    align-self: center;
+  }
+  &__deletebtn {
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    background-color: #b234b1;
+    border-radius: 8px;
+  }
+  &__cancelbtn {
+    cursor: pointer;
+    color: #b234b1;
+    padding: 10px;
+    background-color: white;
+    border: solid 1px #b234b1;
+    border-radius: 8px;
+  }
+}

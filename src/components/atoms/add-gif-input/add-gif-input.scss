@@ -1,0 +1,29 @@
+.addinput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px 100px 0;
+  gap: 10px;
+  &__input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    border: solid 0;
+  }
+  &__input--error {
+    width: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    border: solid 0;
+    border: solid 1px red;
+  }
+  &__error {
+    color: red;
+  }
+  &__button {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #b234b1;
+    color: white;
+  }
+}
