@@ -4,18 +4,18 @@ import clienHttp from "../../../services/client/client";
 import Card from "../../atoms/card/card";
 import WarningIcon from "../../../assets/warning-icon.svg";
 
-interface CardsProps {
+interface Lista {
     id: string;
     url: string;
-
 }
-const Cards= () => {
-    const[listaGifs, setListaGifs] = useState([]);
+
+const Cards = () => {
+    const [listaGifs, setListaGifs] = useState<Array<Lista>>([]);
 
 
     useEffect(() => {
         clienHttp.get(`/?author_id=34`)
-            .then((response)=>{
+            .then((response) => {
                 console.log(response.data);
                 setListaGifs(response.data)
             })
@@ -25,13 +25,13 @@ const Cards= () => {
     return listaGifs.length !== 0 ? (
         <div>
             {listaGifs.map((lis) =>
-                <Card image={lis.url}/>
+                <Card key={lis.id} image={lis.url}/>
             )}
         </div>
     ) : <div>
-            <img className={"img"} src={WarningIcon}/>
-            <h1 className={"h1"}>No posee gifs</h1>
-        </div>;
+        <img className={"img"} src={WarningIcon}/>
+        <h1 className={"h1"}>No posee gifs</h1>
+    </div>;
 };
 
 export default Cards;
