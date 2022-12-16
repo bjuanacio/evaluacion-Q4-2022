@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid var(--main);
+
+  &--primary {
+    color: white;
+    background-color: var(--main);
+  }
+
+  &--secondary {
+    color: var(--main);
+    background-color: whitesmoke;
+  }
+}
