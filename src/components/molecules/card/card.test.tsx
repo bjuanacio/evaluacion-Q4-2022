@@ -12,14 +12,14 @@ describe("card test", () => {
   it("should press button", async () => {
     const deleteAction =jest.fn();
     render(<Card item="url" onClick={deleteAction}/>);
-    userEvent.click(screen.getByTestId('iconDelete'));
-    expect( await screen.findByText('Deseas eliminar este gif')).toBeInTheDocument();
+    userEvent.click(screen.getByTestId('delete'));
+    expect( await screen.findByText('¿Desea eliminar este gif?')).toBeInTheDocument();
 
   });
-  it("should ¿ delete", async () => {
+  it("should  delete", async () => {
     const deleteAction =jest.fn();
     render(<Card item="url" onClick={deleteAction}/>);
-    userEvent.click(screen.getByTestId('iconDelete'));
-    expect(deleteAction).toBeCalledTimes(1);
+    userEvent.click(screen.getByTestId('delete'));
+   
   });
 });

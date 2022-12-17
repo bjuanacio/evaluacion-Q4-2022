@@ -1,7 +1,8 @@
 export type initialForm = object
 
 export interface UseFormReturn {
-  formState: any;
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onResetForm: () => void;
+  data: any
+  handleDelete: (idDelete: number, urlDelete: string) => void
+  handlePost: (url: any) => void
+  ApiService: (method: string, body: any) => void
 }
