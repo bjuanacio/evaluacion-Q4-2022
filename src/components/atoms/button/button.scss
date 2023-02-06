@@ -1,0 +1,26 @@
+.button {
+  background-color: var(--main);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  color: #ffff;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 0.1;
+  }
+
+  &--circle {
+    padding: 0px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  &--secondary {
+    color: var(--main);
+    background-color: #ffff;
+    border: 2px solid var(--main);
+  }
+}
