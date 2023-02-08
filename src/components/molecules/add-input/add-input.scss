@@ -1,0 +1,21 @@
+.add-input {
+  display: flex;
+  flex-direction: row;
+
+  gap: 16px;
+
+  &__label-container {
+    margin-bottom: 12px;
+  }
+
+  &__label {
+    font-size: 24px;
+  }
+
+  &__input {
+    width: 340px;
+  }
+  &__button {
+    height: 52px;
+  }
+}
