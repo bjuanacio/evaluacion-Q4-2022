@@ -17,6 +17,7 @@ describe("Button test", () => {
         Aceptar
       </Button>
     );
+
     const button = screen.getByText("Aceptar");
 
     expect(button).toHaveClass("button--circle");
@@ -45,6 +46,6 @@ describe("Button test", () => {
 
     await userEvent.click(button);
 
-    expect(mockOnClik).toBeCalled();
+    expect(mockOnClik).toBeCalledWith();
   });
 });

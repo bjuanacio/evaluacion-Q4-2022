@@ -1,0 +1,57 @@
+.card {
+  width: 230px;
+  height: 340px;
+  background-color: #000;
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__delete-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 30px;
+    height: 30px;
+  }
+
+  &__remove-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__remove-message-container {
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  &__remove-message {
+    font-size: 20px;
+   
+  }
+
+  &__remove-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__remove-button {
+    width: 150px;
+    height: 50px;
+  }
+}
