@@ -18,4 +18,21 @@
   &__button {
     height: 52px;
   }
+
+  &__button-responsive {
+    height: 52px;
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .add-input {
+    &__button {
+      display: none;
+    }
+
+    &__button-responsive {
+      display: block;
+    }
+  }
 }

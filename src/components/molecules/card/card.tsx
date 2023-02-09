@@ -18,7 +18,7 @@ const Card: FC<CardProps> = ({ gif, onDeleteGif }) => {
 
   return (
     <div className="card">
-      <img alt="Not found" src={gif.url} className="card__img" />
+      <img alt="gif" src={gif.url} className="card__img" />
       <div className="card__delete-button">
         <Button isCircle onClick={handleOnClick}>
           <img

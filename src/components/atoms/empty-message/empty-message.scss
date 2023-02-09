@@ -1,0 +1,14 @@
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 44px;
+  width: 100%;
+
+  margin-top: 44px;
+
+  &__message{
+    font-size: 36px;
+  }
+}

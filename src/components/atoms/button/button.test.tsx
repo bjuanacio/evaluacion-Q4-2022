@@ -6,7 +6,9 @@ describe("Button test", () => {
   it("Should render the button", () => {
     render(<Button onClick={() => {}}>Aceptar</Button>);
 
-    const button = screen.getByText("Aceptar");
+    const button = screen.getByRole("button", {
+      name: "Aceptar",
+    });
 
     expect(button).toBeInTheDocument();
   });
@@ -18,7 +20,9 @@ describe("Button test", () => {
       </Button>
     );
 
-    const button = screen.getByText("Aceptar");
+    const button = screen.getByRole("button", {
+      name: "Aceptar",
+    });
 
     expect(button).toHaveClass("button--circle");
   });
@@ -29,7 +33,9 @@ describe("Button test", () => {
         Aceptar
       </Button>
     );
-    const button = screen.getByText("Aceptar");
+    const button = screen.getByRole("button", {
+      name: "Aceptar",
+    });
 
     expect(button).toHaveClass("button--secondary");
   });
@@ -42,7 +48,9 @@ describe("Button test", () => {
         Aceptar
       </Button>
     );
-    const button = screen.getByText("Aceptar");
+    const button = screen.getByRole("button", {
+      name: "Aceptar",
+    });
 
     await userEvent.click(button);
 
