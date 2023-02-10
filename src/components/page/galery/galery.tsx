@@ -19,7 +19,7 @@ function Galery() {
 
         <div className="galery__grid">
           {gifs.length > 0 &&
-            gifs.map((card: any) => (
+            gifs.map((card) => (
               <Card key={card.id} gif={card} onDeleteGif={handleDeleteGif} />
             ))}
         </div>

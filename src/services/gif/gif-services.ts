@@ -27,11 +27,6 @@ export const removeGif = async (gifToRemove: Gif): Promise<boolean> => {
     },
   });
 
-  if (
-    (responseRemoveGifs.data as unknown as { code_error: string })?.code_error
-  ) {
-    return false;
-  }
-
-  return true;
+  return !(responseRemoveGifs.data as unknown as { code_error: string })
+    ?.code_error;
 };

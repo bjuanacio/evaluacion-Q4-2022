@@ -10,13 +10,19 @@ function useGalery() {
   const [gifs, setGifs] = useState<Gif[]>([]);
 
   useEffect(() => {
-    getGifs().then((list) => setGifs(list));
+    const getList = async () => {
+      const response = await getGifs();
+      setGifs(response);
+    };
+
+    getList();
   }, []);
 
-  const handleAddGif = (urlGif: string) => {
-    addGif(urlGif).then((newGif) => {
-      setGifs([...gifs, newGif]);
-    });
+  const handleAddGif = async (urlGif: string) => {
+    try {
+      const response = await addGif(urlGif);
+      setGifs([...gifs, response]);
+    } catch (error) {}
   };
 
   const handleDeleteGif = (gif: Gif) => {

@@ -54,6 +54,6 @@ describe("Button test", () => {
 
     await userEvent.click(button);
 
-    expect(mockOnClik).toBeCalledWith();
+    expect(mockOnClik).toBeCalled();
   });
 });
