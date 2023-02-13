@@ -19,7 +19,7 @@ function useGalery() {
       });
   }, []);
 
-  const handleAddGif = async (urlGif: string) => {
+  const handleAddGif = (urlGif: string) => {
     setValue(urlGif);
     addGif(urlGif)
       .then((response) => setGifs([...gifs, response]))

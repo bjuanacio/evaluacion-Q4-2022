@@ -53,8 +53,8 @@ describe("useGalery test", () => {
 
     const { result } = renderHook(() => useGalery());
 
-    await act(async () => {
-      await result.current.handleAddGif("exampleURL");
+    await act(() => {
+      result.current.handleAddGif("exampleURL");
     });
 
     expect(mockAddService).toBeCalledWith("exampleURL");
@@ -68,8 +68,8 @@ describe("useGalery test", () => {
 
     const { result } = renderHook(() => useGalery());
 
-    await act(async () => {
-      await result.current.handleAddGif("exampleURL");
+    await act(() => {
+      result.current.handleAddGif("exampleURL");
     });
 
     expect(mockAddService).toBeCalledWith("exampleURL");

@@ -1,8 +1,9 @@
 import EmptyMessage from "../../atoms/empty-message/empty-message";
 import AddInput from "../../molecules/add-input/add-input";
 import Card from "../../molecules/card/card";
-import "./galery.scss";
 import useGalery from "./use-galery/use-galery";
+
+import "./galery.scss";
 
 function Galery() {
   const { gifs, errorMessage, value, handleAddGif, handleDeleteGif } =
