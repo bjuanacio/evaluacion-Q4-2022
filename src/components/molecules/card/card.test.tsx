@@ -48,7 +48,7 @@ describe("Cards tests", () => {
     expect(removeText).not.toBeInTheDocument();
   });
 
-  it("should execute onDeleteGif when clicked the remove button", async () => {
+  it("should execute onDeleteGif when the remove button is clicked", async () => {
     const mockOnDeleteGif = jest.fn();
 
     render(<Card gif={gifExample} onDeleteGif={mockOnDeleteGif} />);

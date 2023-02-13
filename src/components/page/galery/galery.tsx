@@ -5,7 +5,8 @@ import "./galery.scss";
 import useGalery from "./use-galery/use-galery";
 
 function Galery() {
-  const { gifs, handleAddGif, handleDeleteGif } = useGalery();
+  const { gifs, errorMessage, value, handleAddGif, handleDeleteGif } =
+    useGalery();
 
   return (
     <div className="galery">
@@ -14,7 +15,12 @@ function Galery() {
           <h1 className="galery__title-h1">Gif Galery</h1>
         </div>
         <div className="galery__input-container">
-          <AddInput onAdd={handleAddGif} placeHolder="Gift URL" />
+          <AddInput
+            onAdd={handleAddGif}
+            placeHolder="Gift URL"
+            messageError={errorMessage}
+            value={value}
+          />
         </div>
 
         <div className="galery__grid">

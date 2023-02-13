@@ -1,9 +1,6 @@
-
 import "./app.scss";
 import Galery from "./components/page/galery/galery";
 
-const App = () => {
-  return <Galery />;
-};
+const App = () => <Galery />;
 
 export default App;

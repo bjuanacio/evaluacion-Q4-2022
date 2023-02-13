@@ -15,6 +15,7 @@ function useCard({ gif, onDeleteGif }: UseCardProps) {
 
   const handleDelete = () => {
     onDeleteGif(gif);
+    setIsVisibleRemovePanel(false);
   };
 
   return {

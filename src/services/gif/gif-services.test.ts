@@ -21,7 +21,7 @@ describe("Gif services", () => {
     const response = await getGifs();
 
     expect(mockGetGifs).toBeCalled();
-    expect(response).toEqual(mockCards)
+    expect(response).toEqual(mockCards);
   });
 
   it("should return a gif when the addGif service resposes ok", async () => {
@@ -32,23 +32,7 @@ describe("Gif services", () => {
     const response = await addGif(mockCards[0].url);
 
     expect(mockAddGifs).toBeCalled();
-    expect(response).toEqual(mockCards[0])
-  });
-
-  it("should return false when the removeGif service resposes ok but has code_error", async () => {
-    const mockDelete = jest.spyOn(axios, "delete").mockResolvedValue({
-      data: {
-        code_error: "Is an error",
-      },
-    });
-
-    const response = await removeGif({
-      id: 1,
-      url: "",
-    });
-
-    expect(mockDelete).toBeCalled();
-    expect(response).toBeFalsy();
+    expect(response).toEqual(mockCards[0]);
   });
 
   it("should return true when the removeGif service resposes ok", async () => {
@@ -61,5 +45,23 @@ describe("Gif services", () => {
 
     expect(mockDelete).toBeCalled();
     expect(response).toBeTruthy();
+  });
+
+  it("should return an error when the removeGif service resposes with code_error", async () => {
+    const mockDelete = jest.spyOn(axios, "delete").mockResolvedValue({
+      data: {
+        code_error: "Code error",
+      },
+    });
+
+    try {
+      await removeGif({
+        id: 1,
+        url: "",
+      });
+    } catch ({ message }) {
+      expect(mockDelete).toBeCalled();
+      expect(message).toBe("No se pudo eliminar el GIF");
+    }
   });
 });
