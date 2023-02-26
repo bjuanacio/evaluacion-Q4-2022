@@ -1,4 +1,3 @@
-export const URL_SERVICE =
-  "https://iyelrnlkoq7ra5mnxg5cobbkta0uubul.lambda-url.us-east-1.on.aws";
+export const URL_SERVICE = process.env.REACT_APP_URL_SERVICE;
 
-export const AUTHOR_ID = 2;
+export const AUTHOR_ID = process.env.REACT_APP_AUTHOR_ID;

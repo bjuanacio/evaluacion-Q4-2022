@@ -38,10 +38,10 @@ const Card: FC<CardProps> = ({ gif, onDeleteGif }) => {
           </div>
           <div className="card__remove-buttons-container">
             <div className="card__remove-button">
-              <Button onClick={handleDelete}>Eliminar</Button>
+              <Button onClick={handleDelete} block>Eliminar</Button>
             </div>
             <div className="card__remove-button">
-              <Button type="secondary" onClick={handleOnClick}>
+              <Button type="secondary" block onClick={handleOnClick}>
                 Cancelar
               </Button>
             </div>

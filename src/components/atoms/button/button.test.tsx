@@ -40,6 +40,19 @@ describe("Button test", () => {
     expect(button).toHaveClass("button--secondary");
   });
 
+  it("Should render the button with the class button--block", () => {
+    render(
+      <Button type="secondary" block onClick={() => {}}>
+        Aceptar
+      </Button>
+    );
+    const button = screen.getByRole("button", {
+      name: "Aceptar",
+    });
+
+    expect(button).toHaveClass("button--block");
+  });
+
   it("Should execute onClick when the button is clicked", async () => {
     const mockOnClik = jest.fn();
 

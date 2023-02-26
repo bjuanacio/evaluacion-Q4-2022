@@ -19,14 +19,22 @@ function useGalery() {
       });
   }, []);
 
-  const handleAddGif = (urlGif: string) => {
-    setValue(urlGif);
-    addGif(urlGif)
-      .then((response) => setGifs([...gifs, response]))
-      .catch(() => {
-        setValue("");
-        setErrorMessage("No se pudo agregar el GIF");
-      });
+  const handleAddGif = async (urlGif: string) => {
+    try {
+      setValue(urlGif);
+
+      if (!urlGif) {
+        throw new Error("Debe agregar una cadena de texto");
+      }
+
+      const response = await addGif(urlGif);
+      setGifs([...gifs, response]);
+    } catch (error) {
+      setValue("");
+      setErrorMessage(
+        (error as { message: string })?.message ?? "No se pudo agregar el GIF"
+      );
+    }
   };
 
   const handleDeleteGif = (gif: Gif) => {

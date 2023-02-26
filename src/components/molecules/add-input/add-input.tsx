@@ -42,10 +42,10 @@ const AddInput: FC<AddInputProps> = ({
       </div>
 
       <div className="add-input__button">
-        <Button onClick={handleOnClick}>Agregar</Button>
+        <Button block onClick={handleOnClick}>Agregar</Button>
       </div>
       <div className="add-input__button-responsive">
-        <Button onClick={handleOnClick}>+</Button>
+        <Button block onClick={handleOnClick}>+</Button>
       </div>
     </div>
   );

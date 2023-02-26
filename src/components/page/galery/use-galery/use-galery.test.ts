@@ -53,12 +53,28 @@ describe("useGalery test", () => {
 
     const { result } = renderHook(() => useGalery());
 
-    await act(() => {
-      result.current.handleAddGif("exampleURL");
+    await act(async () => {
+      await result.current.handleAddGif("exampleURL");
     });
 
     expect(mockAddService).toBeCalledWith("exampleURL");
     expect(result.current.gifs).toEqual([newItem]);
+  });
+
+  it("should not execute addGif service when handleAddGif is executed with empty string", async () => {
+    jest.spyOn(Services, "getGifs").mockResolvedValue([]);
+
+    const mockAddService = jest.spyOn(Services, "addGif");
+
+    const { result } = renderHook(() => useGalery());
+
+    await act(() => {
+      result.current.handleAddGif("");
+    });
+
+    expect(mockAddService).not.toBeCalledWith();
+    expect(result.current.gifs).toEqual([]);
+    expect(result.current.errorMessage).toEqual("Debe agregar una cadena de texto");
   });
 
   it("should execute addGif service but with an error when handleAddGif is executed and should not set gif state", async () => {
